@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Date</title>
+    <link rel="stylesheet" href="date.css" />
+  </head>
+  <body>
+    <h1>What date do you want to book?</h1>
+    <label for="bookingDate">Select a date: </label>
+    <input type="date" id="bookingDate" />
+    <button id="submit">Sumit</button>
+    <p id="bookingResult"></p>
+    <button id="homeButton" style="display: none">Home</button>
+
+    <script>
+      let bookingDateInput = document.getElementById("bookingDate");
+      let submitButton = document.getElementById("submit");
+      let bookingResult = document.getElementById("bookingResult");
+      let homeButton = document.getElementById("homeButton");
+
+      submitButton.addEventListener("click", function () {
+        let selectedDate = bookingDateInput.value;
+
+        if (selectedDate) {
+          bookingResult.textContent = `You have successfully booked the ${selectedDate}.`;
+          homeButton.style.display = "block";
+        } else {
+          bookingResult.textContent = "Please select a date before booking.";
+        }
+      });
+
+      homeButton.addEventListener("click", function () {
+        location.href = "./index.html";
+      });
+    </script>
+  </body>
+</html>
